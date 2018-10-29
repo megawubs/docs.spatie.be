@@ -35,7 +35,7 @@ class BigAmountAddedReactor
             return;
         }
 
-        $account = Account::find($event->accountId);
+        $account = Account::uuid($event->uuId);
 
         Mail::to('director@bank.com')->send(new BigAmountAddedMail($account, $event->amount));
     }
